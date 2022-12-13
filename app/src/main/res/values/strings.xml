@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Sudoku</string>
+    <string name="startText">WELCOME TO \nSUDOKU</string>
+    <string name="play">New game</string>
+    <string name="statistics">Show statistics</string>
+    <string name="textLevel">Choose a difficulty level</string>
+    <string name="levelEasy">Easy</string>
+    <string name="levelMedium">Medium</string>
+    <string name="levelHard">Hard</string>
+    <string name="przykladowe">Jakieś tam statystyki</string>
+</resources>
