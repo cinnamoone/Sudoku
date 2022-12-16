@@ -13,12 +13,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import edu.mob.sudoku.Game.BoardChecker;
 import edu.mob.sudoku.R;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button home;
-    EditText editText;
     private final int SIZE = 9;
 
     private EditText editTexts[][] = new EditText[SIZE][SIZE];
@@ -173,7 +173,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private View.OnTouchListener getOnTouchIngorer() {
         return new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
-                return true; // the listener has consumed the event
+                return true;
             }
         };
     }
@@ -182,26 +182,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void setTextChangeListeners(){
         for(int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++){
-                editTexts[i][j].addTextChangedListener(getEditTextOnChangeBehaviour());
+                editTexts[i][j].addTextChangedListener(getEditTextOnChangeBehaviour(i, j));
             }
         }
     }
 
 
-    private TextWatcher getEditTextOnChangeBehaviour(){
-        return new TextWatcher() {
-
-            public void afterTextChanged(Editable s) {}
-
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-            }
-
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-        };
+    private TextWatcher getEditTextOnChangeBehaviour(int i, int j){
+        return new EditTextTextWatcher(i, j);
     }
 
+    private void assignEditTextValueToBoard(int i, int j) {
+        try {
+            String editTextAsString = editTexts[i][j].getText().toString();
+            board[i][j] = Integer.parseInt(editTextAsString);
+        }catch (Exception e) {
+            board[i][j] = 0;
+        }
+
+    }
+
+    private void checkBoard(int i, int j){
+        boolean isCorrectNumber = BoardChecker.isCorrectPlace(board, i, j);
+        if(isCorrectNumber){
+            editTexts[i][j].setTextColor(Color.BLACK);
+        }else{
+            editTexts[i][j].setTextColor(Color.RED);
+        }
+    }
 
     @Override
     public void onClick(View view) {
@@ -209,4 +217,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         startActivity(intent);
 
     }
+
+    class EditTextTextWatcher implements TextWatcher {
+
+        private int i;
+        private int j;
+
+        EditTextTextWatcher(int i, int j) {
+            this.i = i;
+            this.j = j;
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable editable) {
+            assignEditTextValueToBoard(this.i, this.j);
+            checkBoard(this.i, this.j);
+
+        }
+    }
 }
+
+
