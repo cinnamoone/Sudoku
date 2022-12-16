@@ -1,11 +1,17 @@
 <resources>
     <string name="app_name">Sudoku</string>
-    <string name="startText">WELCOME TO \nSUDOKU</string>
-    <string name="play">New game</string>
-    <string name="statistics">Show statistics</string>
-    <string name="textLevel">Choose a difficulty level</string>
-    <string name="levelEasy">Easy</string>
-    <string name="levelMedium">Medium</string>
-    <string name="levelHard">Hard</string>
-    <string name="przykladowe">Jakieś tam statystyki</string>
+    <string name="continue_button">CONTINUE</string>
+    <string name="newgame_button">NEW GAME</string>
+    <string name="statistics_button">STATISTICS</string>
+    <string name="exit_button">EXIT</string>
+
+    <string name="choose_level">CHOOSE\n DIFFICULTY LEVEL</string>
+    <string name="easy_button">EASY</string>
+    <string name="medium_button">MEDIUM</string>
+    <string name="hard_button">HARD</string>
+
+    <string name="home_button">HOME</string>
+    <string name="hint_button">HINT</string>
+    <string name="submit_button">SUBMIT</string>
+    <string name="undo_button">UNDO</string>
 </resources>

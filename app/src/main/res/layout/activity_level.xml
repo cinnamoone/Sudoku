@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background3"
-    tools:context=".level">
+    tools:context=".GUI.LevelActivity">
 
     <Button
         android:id="@+id/choose_level"
@@ -14,7 +14,7 @@
         android:background="@drawable/purpleborder"
         android:backgroundTint="#A46EAE"
         android:backgroundTintMode="src_atop"
-        android:text="Choose difficulty level"
+        android:text="@string/choose_level"
         android:textAlignment="center"
         android:textColor="#261529"
         android:textSize="20sp"
@@ -41,12 +41,12 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/easy"
+            android:id="@+id/easy_button"
             android:layout_width="248dp"
             android:layout_height="83dp"
             android:background="#A9624C9A"
             android:backgroundTint="#623DB3"
-            android:text="easy"
+            android:text="@string/easy_button"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="22sp"
@@ -56,11 +56,11 @@
             tools:layout_editor_absoluteY="353dp" />
 
         <Button
-            android:id="@+id/medium"
+            android:id="@+id/medium_button"
             android:layout_width="248dp"
             android:layout_height="83dp"
             android:background="#805D4A87"
-            android:text="medium"
+            android:text="@string/medium_button"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="22sp"
@@ -70,11 +70,11 @@
             tools:layout_editor_absoluteY="270dp" />
 
         <Button
-            android:id="@+id/hard"
+            android:id="@+id/hard_button"
             android:layout_width="248dp"
             android:layout_height="83dp"
             android:background="#574B3A70"
-            android:text="hard"
+            android:text="@string/hard_button"
             android:textAlignment="center"
             android:textColor="@color/black"
             android:textSize="22sp"

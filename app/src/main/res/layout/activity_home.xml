@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background2"
-    tools:context=".HOME">
+    tools:context=".GUI.HomeActivity">
 
 
     <GridLayout
@@ -26,7 +26,7 @@
             android:layout_width="240dp"
             android:layout_height="60dp"
             android:backgroundTint="#E6E4EC"
-            android:text="Continue"
+            android:text="@string/continue_button"
             android:textColor="@color/black"
             app:cornerRadius="10dp"
             app:strokeColor="#90FFFFFF"
@@ -39,7 +39,7 @@
             android:layout_width="240dp"
             android:layout_height="60dp"
             android:backgroundTint="#C2BCCF"
-            android:text="New game"
+            android:text="@string/newgame_button"
             android:textColor="@color/black"
             app:cornerRadius="10dp"
             app:strokeColor="#FFFFFF"
@@ -51,10 +51,11 @@
             android:layout_width="240dp"
             android:layout_height="60dp"
             android:backgroundTint="#998CB5"
-            android:text="Statistics"
+            android:text="@string/statistics_button"
             android:textColor="@color/black"
             app:cornerRadius="10dp"
             app:strokeColor="#FFFFFF"
+            tools:ignore="TextContrastCheck"
             tools:layout_editor_absoluteX="89dp"
             tools:layout_editor_absoluteY="247dp" />
 
@@ -63,7 +64,7 @@
             android:layout_width="240dp"
             android:layout_height="60dp"
             android:backgroundTint="#554871"
-            android:text="EXIT"
+            android:text="@string/exit_button"
             android:textColor="@color/black"
             app:cornerRadius="10dp"
             app:strokeColor="#FFFFFF"

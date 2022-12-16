@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".MainActivity">
+    tools:context=".GUI.MainActivity">
 
 
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
         android:columnCount="1"
         android:rowCount="3"
         android:theme="@style/brrr"
@@ -30,7 +30,7 @@
             android:background="#233B2E59"
             android:backgroundTint="#86DBD7E4"
             android:lineSpacingExtra="16sp"
-            android:text="hint"
+            android:text="@string/hint_button"
             android:textAlignment="center"
             android:textSize="15dp"
             app:cornerRadius="20dp"
@@ -48,7 +48,7 @@
             android:background="#48D81B60"
             android:backgroundTint="#58408C"
             android:lineSpacingExtra="8sp"
-            android:text="submit"
+            android:text="@string/submit_button"
             android:textAlignment="center"
             android:textSize="15dp"
             app:cornerRadius="20dp"
@@ -64,23 +64,24 @@
             android:layout_row="2"
             android:layout_column="0"
             android:background="#5648287A"
-            android:text="undo"
+            android:text="@string/undo_button"
             android:textAlignment="center"
             android:textSize="15dp"
             tools:layout_editor_absoluteX="134dp"
             tools:layout_editor_absoluteY="164dp" />
     </GridLayout>
 
+
     <GridLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="20dp"
         android:columnCount="5"
         android:rowCount="5"
         android:theme="@style/brrr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.159"
+        app:layout_constraintHorizontal_bias="0.087"
         app:layout_constraintStart_toStartOf="parent">
 
 
@@ -223,16 +224,16 @@
 
     </GridLayout>
 
-
     <GridLayout
+        android:id="@+id/gridLayout2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="45dp"
-        android:layout_marginBottom="680dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginBottom="4dp"
         android:columnCount="2"
         android:rowCount="1"
         android:theme="@style/brrr"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -245,7 +246,7 @@
             android:layout_row="0"
             android:layout_column="0"
             android:background="#00651FFF"
-            android:text="HOME"
+            android:text="@string/home_button"
             tools:layout_editor_absoluteX="60dp"
             tools:layout_editor_absoluteY="42dp" />
 
@@ -256,21 +257,25 @@
             android:layout_row="0"
             android:layout_column="1"
             android:background="#00422A78"
-            android:text="New game"
+            android:text="@string/newgame_button"
             tools:layout_editor_absoluteX="235dp"
             tools:layout_editor_absoluteY="42dp" />
     </GridLayout>
 
     <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:id="@+id/gridLayout3"
+        android:layout_width="390dp"
+        android:layout_height="439dp"
+        android:layout_marginTop="30dp"
         android:layout_marginBottom="204dp"
         android:columnCount="3"
         android:rowCount="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout2"
+        app:layout_constraintVertical_bias="1.0">
 
 
         <GridLayout
@@ -287,7 +292,7 @@
 
             <Button
                 android:id="@+id/oneb1"
-                android:layout_width="47dp"
+                android:layout_width="48dp"
                 android:layout_height="47dp"
                 android:layout_row="0"
                 android:layout_column="0"
