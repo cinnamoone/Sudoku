@@ -290,7 +290,7 @@
             tools:layout_editor_absoluteX="-86dp"
             tools:layout_editor_absoluteY="243dp">
 
-            <Button
+            <EditText
                 android:id="@+id/oneb1"
                 android:layout_width="48dp"
                 android:layout_height="47dp"
@@ -300,9 +300,10 @@
                 android:text=""
                 android:textColor="@color/black"
                 android:visibility="visible"
-                tools:visibility="visible" />
+                tools:visibility="visible"
+                android:inputType="number"/>
 
-            <Button
+            <EditText
                 android:id="@+id/oneb2"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -310,9 +311,10 @@
                 android:layout_column="1"
                 android:background="@android:drawable/alert_light_frame"
                 android:text=""
-                android:textColor="@color/black" />
+                android:textColor="@color/black"
+                android:maxLength="1"/>
 
-            <Button
+            <EditText
                 android:id="@+id/oneb3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -322,7 +324,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/oneb4"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -332,7 +334,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/oneb5"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -342,7 +344,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/oneb6"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -352,7 +354,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/oneb7"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -362,7 +364,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/oneb8"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -372,7 +374,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/oneb9"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -396,7 +398,7 @@
             tools:layout_editor_absoluteX="-86dp"
             tools:layout_editor_absoluteY="243dp">
 
-            <Button
+            <EditText
                 android:id="@+id/twob1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -406,7 +408,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/twob2"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -416,73 +418,73 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/twob3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="0"
                 android:layout_column="2"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/twob4"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="1"
                 android:layout_column="0"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/twob5"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="1"
                 android:layout_column="1"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/twob6"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="1"
                 android:layout_column="2"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/twob7"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="2"
                 android:layout_column="0"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/twob8"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="2"
                 android:layout_column="1"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/twob9"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="2"
                 android:layout_column="2"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
@@ -500,7 +502,7 @@
             tools:layout_editor_absoluteX="-86dp"
             tools:layout_editor_absoluteY="243dp">
 
-            <Button
+            <EditText
                 android:id="@+id/threeb1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -510,7 +512,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/threeb2"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -520,7 +522,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/threeb3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -530,7 +532,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/threeb4"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -540,7 +542,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/threeb5"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -550,7 +552,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/threeb6"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -560,7 +562,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/threeb7"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -570,7 +572,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/threeb8"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -580,7 +582,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/threeb9"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -604,18 +606,17 @@
             tools:layout_editor_absoluteX="-86dp"
             tools:layout_editor_absoluteY="243dp">
 
-            <Button
+            <EditText
                 android:id="@+id/fourb1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="0"
                 android:layout_column="0"
                 android:background="@android:drawable/alert_light_frame"
-                android:backgroundTint="#00FFFFFF"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fourb2"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -625,7 +626,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fourb3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -635,7 +636,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fourb4"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -645,7 +646,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fourb5"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -655,7 +656,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fourb6"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -665,7 +666,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fourb7"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -675,7 +676,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fourb8"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -685,7 +686,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fourb9"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -709,93 +710,93 @@
             tools:layout_editor_absoluteX="-86dp"
             tools:layout_editor_absoluteY="243dp">
 
-            <Button
+            <EditText
                 android:id="@+id/fiveb1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="0"
                 android:layout_column="0"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fiveb2"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="0"
                 android:layout_column="1"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fiveb3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="0"
                 android:layout_column="2"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fiveb4"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="1"
                 android:layout_column="0"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fiveb5"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="1"
                 android:layout_column="1"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fiveb6"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="1"
                 android:layout_column="2"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
-                android:id="@+id/five7"
+            <EditText
+                android:id="@+id/fiveb7"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="2"
                 android:layout_column="0"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fiveb8"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="2"
                 android:layout_column="1"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/fiveb9"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="2"
                 android:layout_column="2"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
@@ -813,7 +814,7 @@
             tools:layout_editor_absoluteX="-86dp"
             tools:layout_editor_absoluteY="243dp">
 
-            <Button
+            <EditText
                 android:id="@+id/sixb1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -823,7 +824,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sixb2"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -833,7 +834,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sixb3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -843,7 +844,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sixb4"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -853,7 +854,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sixb5"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -863,7 +864,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sixb6"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -873,7 +874,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sixb7"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -883,7 +884,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sixb8"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -893,7 +894,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sixb9"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -917,18 +918,17 @@
             tools:layout_editor_absoluteX="-86dp"
             tools:layout_editor_absoluteY="243dp">
 
-            <Button
+            <EditText
                 android:id="@+id/sevenb1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="0"
                 android:layout_column="0"
                 android:background="@android:drawable/alert_light_frame"
-                android:backgroundTint="#00FFFFFF"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sevenb2"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -938,7 +938,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sevenb3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -948,7 +948,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sevenb4"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -958,7 +958,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sevenb5"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -968,7 +968,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sevenb6"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -978,7 +978,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sevenb7"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -988,7 +988,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sevenb8"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -998,7 +998,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/sevenb9"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -1022,93 +1022,93 @@
             tools:layout_editor_absoluteX="-86dp"
             tools:layout_editor_absoluteY="243dp">
 
-            <Button
+            <EditText
                 android:id="@+id/eightb1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="0"
                 android:layout_column="0"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/eightb2"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="0"
                 android:layout_column="1"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/eightb3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="0"
                 android:layout_column="2"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/eightb4"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="1"
                 android:layout_column="0"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/eightb5"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="1"
                 android:layout_column="1"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/eightb6"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="1"
                 android:layout_column="2"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
-                android:id="@+id/eight7"
+            <EditText
+                android:id="@+id/eightb7"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="2"
                 android:layout_column="0"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/eightb8"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="2"
                 android:layout_column="1"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/eightb9"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
                 android:layout_row="2"
                 android:layout_column="2"
-                android:background="@android:drawable/alert_dark_frame"
+                android:background="@android:drawable/alert_light_frame"
                 android:text=""
                 android:textColor="@color/black" />
 
@@ -1126,7 +1126,7 @@
             tools:layout_editor_absoluteX="-86dp"
             tools:layout_editor_absoluteY="243dp">
 
-            <Button
+            <EditText
                 android:id="@+id/nineb1"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -1136,7 +1136,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/nineb2"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -1146,7 +1146,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/nineb3"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -1156,7 +1156,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/nineb4"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -1166,7 +1166,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/nineb5"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -1176,7 +1176,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/nineb6"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -1186,7 +1186,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/nineb7"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -1195,7 +1195,7 @@
                 android:background="@android:drawable/alert_light_frame"
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/nineb8"
                 android:layout_width="48dp"
                 android:layout_height="48dp"
@@ -1205,7 +1205,7 @@
                 android:text=""
                 android:textColor="@color/black" />
 
-            <Button
+            <EditText
                 android:id="@+id/nineb9"
                 android:layout_width="48dp"
                 android:layout_height="48dp"

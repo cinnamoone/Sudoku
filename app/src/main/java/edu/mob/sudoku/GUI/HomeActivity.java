@@ -7,6 +7,9 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import edu.mob.sudoku.GUI.LevelActivity;
+import edu.mob.sudoku.GUI.StatisticsActivity;
+import edu.mob.sudoku.Game.NewGame;
 import edu.mob.sudoku.R;
 
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
