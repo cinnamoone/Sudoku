@@ -211,6 +211,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    private void checkGameOver(){
+        if(BoardChecker.isGameOver(board)){
+            System.out.println("win!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        }
+
+    }
+
     @Override
     public void onClick(View view) {
         Intent intent = new Intent(this, HomeActivity.class );
@@ -220,8 +227,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     class EditTextTextWatcher implements TextWatcher {
 
-        private int i;
-        private int j;
+        private final int i;
+        private final int j;
 
         EditTextTextWatcher(int i, int j) {
             this.i = i;
@@ -242,6 +249,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         public void afterTextChanged(Editable editable) {
             assignEditTextValueToBoard(this.i, this.j);
             checkBoard(this.i, this.j);
+            checkGameOver();
 
         }
     }
