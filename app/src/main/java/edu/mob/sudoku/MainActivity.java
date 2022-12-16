@@ -17,10 +17,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        play = findViewById(R.id.playButton);
+
         play.setOnClickListener(this);
 
-        statistic = findViewById(R.id.statisticsButton);
+
         statistic.setOnClickListener(this);
     }
 
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
 
         if(view.getId() == play.getId()){
-            Intent intent = new Intent(this, levelActivity.class );
+            Intent intent = new Intent(this, level.class );
             startActivity(intent);
         }else{
             Intent intent = new Intent(this, statisticsActivity.class);

@@ -4,59 +4,83 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".levelActivity">
+    android:background="@drawable/background3"
+    tools:context=".level">
 
-    <TextView
-        android:id="@+id/textLevel"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="41dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="78dp"
-        android:text="@string/textLevel"
+    <Button
+        android:id="@+id/choose_level"
+        android:layout_width="248dp"
+        android:layout_height="83dp"
+        android:background="@drawable/purpleborder"
+        android:backgroundTint="#A46EAE"
+        android:backgroundTintMode="src_atop"
+        android:text="Choose difficulty level"
         android:textAlignment="center"
-        android:textColor="#3F51B5"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/levelEasy"
+        android:textColor="#261529"
+        android:textSize="20sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:strokeColor="#BC936393"
+        app:strokeWidth="2dp" />
 
-    <Button
-        android:id="@+id/levelEasy"
-        android:layout_width="409dp"
+    <GridLayout
+        android:id="@+id/gridLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="44dp"
-        android:text="@string/levelEasy"
-        app:layout_constraintBottom_toTopOf="@+id/levelMedium"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginBottom="228dp"
 
-    <Button
-        android:id="@+id/levelMedium"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="42dp"
-        android:text="@string/levelMedium"
-        app:layout_constraintBottom_toTopOf="@+id/levelHard"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/levelHard"
-        android:layout_width="409dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="349dp"
-        android:text="@string/levelHard"
+        android:background="@drawable/board"
+        android:columnCount="1"
+        android:rowCount="4"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/easy"
+            android:layout_width="248dp"
+            android:layout_height="83dp"
+            android:background="#A9624C9A"
+            android:backgroundTint="#623DB3"
+            android:text="easy"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:cornerRadius="10dp"
+            app:strokeWidth="2dp"
+            tools:layout_editor_absoluteX="81dp"
+            tools:layout_editor_absoluteY="353dp" />
+
+        <Button
+            android:id="@+id/medium"
+            android:layout_width="248dp"
+            android:layout_height="83dp"
+            android:background="#805D4A87"
+            android:text="medium"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:cornerRadius="10dp"
+            app:strokeWidth="2dp"
+            tools:layout_editor_absoluteX="81dp"
+            tools:layout_editor_absoluteY="270dp" />
+
+        <Button
+            android:id="@+id/hard"
+            android:layout_width="248dp"
+            android:layout_height="83dp"
+            android:background="#574B3A70"
+            android:text="hard"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="22sp"
+            app:cornerRadius="10dp"
+            app:strokeWidth="2dp"
+            tools:layout_editor_absoluteX="81dp"
+            tools:layout_editor_absoluteY="436dp" />
+    </GridLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
