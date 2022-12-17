@@ -5,10 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
@@ -45,7 +43,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         home = findViewById(R.id.homeButton);
         home.setOnClickListener(this);
 
-        initBoard("280304150700005000094018000000081703040750006873006010000060405600540800400800691");
+        initBoard(LevelActivity.choice);
 
         initEditTexts();
         setEditTextValues();

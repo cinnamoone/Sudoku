@@ -22,7 +22,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/continue_button"
+            android:id="@+id/instruction_button"
             android:layout_width="240dp"
             android:layout_height="60dp"
             android:backgroundTint="#E6E4EC"
