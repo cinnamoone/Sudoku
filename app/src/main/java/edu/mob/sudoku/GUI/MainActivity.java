@@ -205,7 +205,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             for (int j = 0; j < SIZE; j++) {
                 if(board[i][j] != 0) {
                     editTexts[i][j].setOnTouchListener(getOnTouchIngorer());
-                    editTexts[i][j].setTextColor(Color.MAGENTA);
+                    editTexts[i][j].setTextColor(Color.BLACK);
                     editTexts[i][j].setTypeface(null, Typeface.BOLD);
                 }
             }
@@ -252,9 +252,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void checkBoard(int i, int j){
         boolean isCorrectNumber = BoardChecker.isCorrectPlace(board, i, j);
         if(isCorrectNumber){
-            editTexts[i][j].setTextColor(Color.BLACK);
+            editTexts[i][j].setTextColor(Color.parseColor("#FF6200EE"));
+            editTexts[i][j].setTypeface(null, Typeface.BOLD);
         }else{
             editTexts[i][j].setTextColor(Color.RED);
+            editTexts[i][j].setTypeface(null, Typeface.BOLD);
         }
     }
 
