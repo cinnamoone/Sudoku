@@ -5,24 +5,36 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.mob.sudoku.Game.BoardChecker;
 import edu.mob.sudoku.R;
+
+class CurrentClickedEditText {
+    int i = -1;
+    int j = -1;
+}
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button home;
+    private List<Button> buttons = new ArrayList<>();
     private final int SIZE = 9;
 
     private EditText editTexts[][] = new EditText[SIZE][SIZE];
     private int[][] board = new int[SIZE][SIZE];
+    private CurrentClickedEditText currentClickedEditText = new CurrentClickedEditText();
 
 
     @Override
@@ -36,10 +48,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         initBoard("280304150700005000094018000000081703040750006873006010000060405600540800400800691");
 
         initEditTexts();
-
         setEditTextValues();
         setUnchangeableEditTexts();
-        setTextChangeListeners();
+        setEditTextsListeners();
+
+        initNumericalButtons();
+        applyBehaviourToNumericalButtons();
+
 
     }
 
@@ -145,6 +160,33 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTexts[8][8] = findViewById(R.id.nineb9);
     }
 
+    private void initNumericalButtons() {
+        buttons.add(findViewById(R.id.one));
+        buttons.add(findViewById(R.id.two));
+        buttons.add(findViewById(R.id.three));
+        buttons.add(findViewById(R.id.four));
+        buttons.add(findViewById(R.id.five));
+        buttons.add(findViewById(R.id.six));
+        buttons.add(findViewById(R.id.seven));
+        buttons.add(findViewById(R.id.eight));
+        buttons.add(findViewById(R.id.nine));
+    }
+
+    private void applyBehaviourToNumericalButtons() {
+        for(int i = 0; i < buttons.size(); i++) {
+            int finalI = i + 1;
+            buttons.get(i).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (currentClickedEditText.i != -1 && currentClickedEditText.j != -1) {
+                        editTexts[currentClickedEditText.i][currentClickedEditText.j].setText(Integer.toString(finalI));
+
+                    }
+                }
+            });
+        }
+    }
+
     private void setEditTextValues(){
         for(int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
@@ -179,10 +221,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-    private void setTextChangeListeners(){
+    private void setEditTextsListeners(){
         for(int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++){
                 editTexts[i][j].addTextChangedListener(getEditTextOnChangeBehaviour(i, j));
+                editTexts[i][j].setOnClickListener(getEditTextOnClickBehaviour(i, j));
             }
         }
     }
@@ -190,6 +233,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private TextWatcher getEditTextOnChangeBehaviour(int i, int j){
         return new EditTextTextWatcher(i, j);
+    }
+
+    private View.OnClickListener getEditTextOnClickBehaviour(int i, int j) {
+        return new EditTextOnClickListener(i, j);
     }
 
     private void assignEditTextValueToBoard(int i, int j) {
@@ -251,6 +298,23 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             checkBoard(this.i, this.j);
             checkGameOver();
 
+        }
+    }
+
+    class EditTextOnClickListener implements View.OnClickListener {
+
+        private final int i;
+        private final int j;
+
+        EditTextOnClickListener(int i, int j) {
+            this.i = i;
+            this.j = j;
+        }
+
+        @Override
+        public void onClick(View view) {
+            currentClickedEditText.i = this.i;
+            currentClickedEditText.j = this.j;
         }
     }
 }

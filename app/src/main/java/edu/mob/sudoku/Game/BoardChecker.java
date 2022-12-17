@@ -51,14 +51,6 @@ public class BoardChecker {
     }
 
     public static boolean isCorrectPlace(int[][] board, int row, int colum){
-        for(int i = 0; i < SIZE; i++){
-            System.out.println(board[i][0]+ " " + board[i][1] + " "+ board[i][2]+" | "+
-                    board[i][3]+ " "+ board[i][4]+" "+ board[i][5]+ " | "+
-                    board[i][6]+ " "+ board[i][7]+ " "+ board[i][8]);
-            if(i == 2 || i == 5 || i == 8){
-                System.out.println("---------------------");
-            }
-        }
         return !isNumberInColumn(board,board[row][colum],colum) &&
                 !isNumberInRow(board,board[row][colum],row) &&
                 !isNumberInSquare(board,board[row][colum],colum,row);
