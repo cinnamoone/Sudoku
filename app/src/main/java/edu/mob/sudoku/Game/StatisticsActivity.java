@@ -1,4 +1,4 @@
-package edu.mob.sudoku.GUI;
+package edu.mob.sudoku.Game;
 
 import android.os.Bundle;
 

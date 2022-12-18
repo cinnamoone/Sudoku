@@ -13,35 +13,35 @@
         android:theme="@style/Theme.Sudoku"
         tools:targetApi="31">
         <activity
-            android:name=".GUI.InstructionActivity"
+            android:name=".Game.InstructionActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".GUI.LevelActivity"
+            android:name=".Game.LevelActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".GUI.MainActivity"
+            android:name=".Game.MainActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".GUI.StatisticsActivity"
+            android:name=".Game.StatisticsActivity"
             android:exported="false">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".GUI.HomeActivity"
+            android:name=".Game.HomeActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

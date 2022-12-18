@@ -1,4 +1,4 @@
-package edu.mob.sudoku.GUI;
+package edu.mob.sudoku.Game;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import edu.mob.sudoku.Game.HomeActivity;
 import edu.mob.sudoku.R;
 
 public class InstructionActivity extends AppCompatActivity implements View.OnClickListener {

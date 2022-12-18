@@ -50,25 +50,20 @@ public class BoardChecker {
         return false;
     }
 
+    //funkcja sprawdzająca czy liczba może być w danym miejscu
     public static boolean isCorrectPlace(int[][] board, int row, int colum){
-//        for(int i = 0; i < SIZE; i++){
-//            System.out.println(board[i][0]+ " " + board[i][1] + " "+ board[i][2]+" | "+
-//                    board[i][3]+ " "+ board[i][4]+" "+ board[i][5]+ " | "+
-//                    board[i][6]+ " "+ board[i][7]+ " "+ board[i][8]);
-//            if(i == 2 || i == 5 || i == 8){
-//                System.out.println("---------------------");
-//            }
-//        }
         return !isNumberInColumn(board,board[row][colum],colum) &&
                 !isNumberInRow(board,board[row][colum],row) &&
                 !isNumberInSquare(board,board[row][colum],colum,row);
 
     }
 
+
+    //funkcja sprawdzająca czy gracz wygrał
     public static boolean isGameOver(int[][] board){
         for(int i = 0; i < SIZE; i++){
             for(int j = 0; j< SIZE; j++){
-                if(!isCorrectPlace(board, i, j)){
+                if(!isCorrectPlace(board, i, j) || board[i][j] == 0){
                     return false;
                 }
             }

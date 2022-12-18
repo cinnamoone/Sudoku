@@ -1,7 +1,9 @@
-package edu.mob.sudoku.GUI;
+package edu.mob.sudoku.Game;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -16,12 +18,23 @@ import android.widget.EditText;
 import java.util.ArrayList;
 import java.util.List;
 
-import edu.mob.sudoku.Game.BoardChecker;
 import edu.mob.sudoku.R;
 
 class CurrentClickedEditText {
     int i = -1;
     int j = -1;
+
+    public void setClickedPosition(int i, int j){
+        this.i = i;
+        this.j = j;
+    }
+
+    public boolean isCurrentClickValid(){
+        if(this.i == -1 || this.j == -1){
+            return false;
+        }
+        return true;
+    }
 }
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -44,7 +57,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         home.setOnClickListener(this);
 
         initBoard(LevelActivity.choice);
-
         initEditTexts();
         setEditTextValues();
         setUnchangeableEditTexts();
@@ -102,7 +114,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTexts[3][2] = findViewById(R.id.fourb3);
         editTexts[3][3] = findViewById(R.id.fiveb1);
         editTexts[3][4] = findViewById(R.id.fiveb2);
-        editTexts[3][5] = findViewById(R.id.fiveb5);
+        editTexts[3][5] = findViewById(R.id.fiveb3);
         editTexts[3][6] = findViewById(R.id.sixb1);
         editTexts[3][7] = findViewById(R.id.sixb2);
         editTexts[3][8] = findViewById(R.id.sixb3);
@@ -158,33 +170,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTexts[8][8] = findViewById(R.id.nineb9);
     }
 
-    private void initNumericalButtons() {
-        buttons.add(findViewById(R.id.one));
-        buttons.add(findViewById(R.id.two));
-        buttons.add(findViewById(R.id.three));
-        buttons.add(findViewById(R.id.four));
-        buttons.add(findViewById(R.id.five));
-        buttons.add(findViewById(R.id.six));
-        buttons.add(findViewById(R.id.seven));
-        buttons.add(findViewById(R.id.eight));
-        buttons.add(findViewById(R.id.nine));
-    }
-
-    private void applyBehaviourToNumericalButtons() {
-        for(int i = 0; i < buttons.size(); i++) {
-            int finalI = i + 1;
-            buttons.get(i).setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (currentClickedEditText.i != -1 && currentClickedEditText.j != -1) {
-                        editTexts[currentClickedEditText.i][currentClickedEditText.j].setText(Integer.toString(finalI));
-
-                    }
-                }
-            });
-        }
-    }
-
     private void setEditTextValues(){
         for(int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
@@ -237,6 +222,34 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         return new EditTextOnClickListener(i, j);
     }
 
+    private void initNumericalButtons() {
+        buttons.add(findViewById(R.id.one));
+        buttons.add(findViewById(R.id.two));
+        buttons.add(findViewById(R.id.three));
+        buttons.add(findViewById(R.id.four));
+        buttons.add(findViewById(R.id.five));
+        buttons.add(findViewById(R.id.six));
+        buttons.add(findViewById(R.id.seven));
+        buttons.add(findViewById(R.id.eight));
+        buttons.add(findViewById(R.id.nine));
+    }
+
+    private void applyBehaviourToNumericalButtons() {
+        for(int i = 0; i < buttons.size(); i++) {
+            int buttonValue = i + 1;
+            buttons.get(i).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if (currentClickedEditText.isCurrentClickValid()) {
+                        editTexts[currentClickedEditText.i][currentClickedEditText.j].setText(Integer.toString(buttonValue));
+                    }
+                }
+            });
+        }
+    }
+
+
+
     private void assignEditTextValueToBoard(int i, int j) {
         try {
             String editTextAsString = editTexts[i][j].getText().toString();
@@ -260,7 +273,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void checkGameOver(){
         if(BoardChecker.isGameOver(board)){
-            System.out.println("win!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+            AlertDialog alertDialog = new AlertDialog.Builder(this)
+                    .setTitle("Congratulations!!!")
+                    .setMessage("If you want to play again press 'yes', if you want to quit press 'no'.")
+                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+
+                        }
+                    })
+                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            finish();
+                        }
+                    })
+                    .show();
         }
 
     }
@@ -313,10 +341,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onClick(View view) {
-            currentClickedEditText.i = this.i;
-            currentClickedEditText.j = this.j;
+            setPreviousClickedFieldBackground();
+            currentClickedEditText.setClickedPosition(this.i, this.j);
+            setClickedFieldBackground();
+
+        }
+
+        private void setPreviousClickedFieldBackground(){
+            if(currentClickedEditText.isCurrentClickValid()){
+                editTexts[currentClickedEditText.i][currentClickedEditText.j].setBackgroundResource(android.R.drawable.alert_light_frame);
+            }
+        }
+
+        private void setClickedFieldBackground(){
+            editTexts[this.i][this.j].setBackgroundResource(android.R.drawable.alert_dark_frame);
+
         }
     }
+
 }
 
 
