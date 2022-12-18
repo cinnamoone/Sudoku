@@ -40,6 +40,9 @@ class CurrentClickedEditText {
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     Button home;
+    Button new_game;
+    Button exit;
+
     private List<Button> buttons = new ArrayList<>();
     private final int SIZE = 9;
 
@@ -55,6 +58,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         home = findViewById(R.id.homeButton);
         home.setOnClickListener(this);
+
+        new_game = findViewById(R.id.newGameButton);
+        new_game.setOnClickListener(this);
+
+        exit = findViewById(R.id.exitButton);
+        exit.setOnClickListener(this);
 
         initBoard(LevelActivity.choice);
         initEditTexts();
@@ -295,8 +304,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        Intent intent = new Intent(this, HomeActivity.class );
-        startActivity(intent);
+        if(view.getId() == home.getId()) {
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+        }else if(view.getId() == new_game.getId()){
+            Intent intent = new Intent(this, LevelActivity.class);
+            startActivity(intent);
+        }else if(view.getId() == exit.getId()){
+            finish();
+        }
 
     }
 
