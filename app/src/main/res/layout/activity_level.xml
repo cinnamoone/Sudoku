@@ -45,7 +45,7 @@
             android:layout_width="248dp"
             android:layout_height="83dp"
             android:background="#A9624C9A"
-            android:backgroundTint="#623DB3"
+            android:backgroundTint="#00623DB3"
             android:text="@string/easy_button"
             android:textAlignment="center"
             android:textColor="@color/black"

@@ -357,7 +357,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onClick(View view) {
-            setPreviousClickedFieldBackground();
+            //setPreviousClickedFieldBackground();
             currentClickedEditText.setClickedPosition(this.i, this.j);
             setClickedFieldBackground();
 
@@ -365,12 +365,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         private void setPreviousClickedFieldBackground(){
             if(currentClickedEditText.isCurrentClickValid()){
-                editTexts[currentClickedEditText.i][currentClickedEditText.j].setBackgroundResource(android.R.drawable.alert_light_frame);
+                editTexts[currentClickedEditText.i][currentClickedEditText.j].setBackgroundResource(android.R.drawable.btn_default);
             }
         }
 
         private void setClickedFieldBackground(){
-            editTexts[this.i][this.j].setBackgroundResource(android.R.drawable.alert_dark_frame);
+            editTexts[this.i][this.j].setBackgroundResource(android.R.drawable.editbox_background);
 
         }
     }
