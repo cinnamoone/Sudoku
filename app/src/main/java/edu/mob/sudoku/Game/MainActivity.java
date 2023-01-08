@@ -3,6 +3,7 @@ package edu.mob.sudoku.Game;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
@@ -357,24 +358,25 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         @Override
         public void onClick(View view) {
-            //setPreviousClickedFieldBackground();
+            setPreviousClickedFieldBackground();
             currentClickedEditText.setClickedPosition(this.i, this.j);
             setClickedFieldBackground();
 
+
         }
 
-        private void setPreviousClickedFieldBackground(){
+       private void setPreviousClickedFieldBackground(){
             if(currentClickedEditText.isCurrentClickValid()){
-                editTexts[currentClickedEditText.i][currentClickedEditText.j].setBackgroundResource(android.R.drawable.btn_default);
+                editTexts[currentClickedEditText.i][currentClickedEditText.j].setBackgroundResource(android.R.drawable.editbox_background);
             }
         }
 
         private void setClickedFieldBackground(){
             editTexts[this.i][this.j].setBackgroundResource(android.R.drawable.editbox_background);
 
-        }
+     }
     }
 
-}
+        }
 
 

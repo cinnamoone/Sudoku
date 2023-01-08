@@ -29,5 +29,16 @@
         <item name="android:textColor">@color/black</item>
     </style>
 
+    <style name="brr">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">48dp</item>
+        <item name="android:layout_marginBottom">48dp</item>
+        <item name="android:background">@drawable/whiteborder</item>
+        <item name="android:backgroundTintMode">add</item>
+        <item name="android:foregroundGravity">top</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
 
 </resources>

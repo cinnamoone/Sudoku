@@ -9,79 +9,18 @@
 
 
     <GridLayout
+        android:id="@+id/gridLayout8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="20dp"
-        android:columnCount="1"
-        android:rowCount="3"
-        android:theme="@style/brrr"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <Button
-            android:id="@+id/hint"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:background="#233B2E59"
-            android:backgroundTint="#86DBD7E4"
-            android:lineSpacingExtra="16sp"
-            android:text="@string/clear_all_button"
-            android:textAlignment="center"
-            android:textSize="15dp"
-            app:cornerRadius="20dp"
-            app:strokeWidth="2dp"
-            tools:layout_editor_absoluteX="170dp"
-            tools:layout_editor_absoluteY="306dp" />
-
-        <Button
-            android:id="@+id/submit"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:background="#48D81B60"
-            android:backgroundTint="#58408C"
-            android:lineSpacingExtra="8sp"
-            android:text="@string/clear_one_button"
-            android:textAlignment="center"
-            android:textSize="15dp"
-            app:cornerRadius="20dp"
-            tools:layout_editor_absoluteX="259dp"
-            tools:layout_editor_absoluteY="377dp" />
-
-
-        <Button
-            android:id="@+id/exitButton"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="130dp"
-            android:layout_height="50dp"
-            android:layout_row="2"
-            android:layout_column="0"
-            android:background="#5648287A"
-            android:text="@string/exit_button"
-            android:textAlignment="center"
-            android:textSize="15dp"
-            tools:layout_editor_absoluteX="134dp"
-            tools:layout_editor_absoluteY="164dp" />
-    </GridLayout>
-
-
-    <GridLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
         android:layout_marginBottom="20dp"
         android:columnCount="5"
         android:rowCount="5"
         android:theme="@style/brrr"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.087"
+        app:layout_constraintEnd_toStartOf="@+id/gridLayout9"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent">
 
 
@@ -235,7 +174,7 @@
         android:theme="@style/brrr"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -296,7 +235,7 @@
                 android:layout_height="40sp"
                 android:layout_row="0"
                 android:layout_column="0"
-                android:background="@drawable/purpleborder"
+                android:background="@drawable/buttons"
                 android:focusable="true"
                 android:focusableInTouchMode="false"
                 android:inputType="number"
@@ -312,7 +251,7 @@
                 android:layout_height="40sp"
                 android:layout_row="0"
                 android:layout_column="1"
-                android:background="@drawable/purpleborder"
+                android:background="@drawable/buttons"
                 android:focusable="true"
                 android:focusableInTouchMode="false"
                 android:inputType="number"
@@ -328,7 +267,7 @@
                 android:layout_height="40sp"
                 android:layout_row="0"
                 android:layout_column="2"
-                android:background="@drawable/purpleborder"
+                android:background="@drawable/buttons"
                 android:focusable="true"
                 android:focusableInTouchMode="false"
                 android:inputType="number"
@@ -344,7 +283,7 @@
                 android:layout_height="40sp"
                 android:layout_row="1"
                 android:layout_column="0"
-                android:background="@drawable/purpleborder"
+                android:background="@drawable/buttons"
                 android:focusable="true"
                 android:focusableInTouchMode="false"
                 android:inputType="number"
@@ -360,7 +299,7 @@
                 android:layout_height="40sp"
                 android:layout_row="1"
                 android:layout_column="1"
-                android:background="@drawable/purpleborder"
+                android:background="@drawable/buttons"
                 android:focusable="true"
                 android:focusableInTouchMode="false"
                 android:inputType="number"
@@ -376,7 +315,7 @@
                 android:layout_height="40sp"
                 android:layout_row="1"
                 android:layout_column="2"
-                android:background="@drawable/purpleborder"
+                android:background="@drawable/buttons"
                 android:focusable="true"
                 android:focusableInTouchMode="false"
                 android:inputType="number"
@@ -392,7 +331,7 @@
                 android:layout_height="40sp"
                 android:layout_row="2"
                 android:layout_column="0"
-                android:background="@drawable/purpleborder"
+                android:background="@drawable/buttons"
                 android:focusable="true"
                 android:focusableInTouchMode="false"
                 android:inputType="number"
@@ -408,7 +347,7 @@
                 android:layout_height="40sp"
                 android:layout_row="2"
                 android:layout_column="1"
-                android:background="@drawable/purpleborder"
+                android:background="@drawable/buttons"
                 android:focusable="true"
                 android:focusableInTouchMode="false"
                 android:inputType="number"
@@ -424,7 +363,7 @@
                 android:layout_height="40sp"
                 android:layout_row="2"
                 android:layout_column="2"
-                android:background="@drawable/purpleborder"
+                android:background="@drawable/buttons"
                 android:focusable="true"
                 android:focusableInTouchMode="false"
                 android:inputType="number"
@@ -1704,6 +1643,72 @@
         </GridLayout>
 
 
+    </GridLayout>
+
+    <GridLayout
+        android:id="@+id/gridLayout9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="30dp"
+        android:layout_marginBottom="20dp"
+        android:columnCount="1"
+        android:rowCount="3"
+        android:theme="@style/brrr"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/gridLayout8"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/hint"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:background="#233B2E59"
+            android:backgroundTint="#86DBD7E4"
+            android:lineSpacingExtra="16sp"
+            android:text="@string/clear_all_button"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            app:cornerRadius="20dp"
+            app:strokeWidth="2dp"
+            tools:layout_editor_absoluteX="170dp"
+            tools:layout_editor_absoluteY="306dp" />
+
+        <Button
+            android:id="@+id/submit"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:background="#48D81B60"
+            android:backgroundTint="#58408C"
+            android:lineSpacingExtra="8sp"
+            android:text="@string/clear_one_button"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            app:cornerRadius="20dp"
+            tools:layout_editor_absoluteX="259dp"
+            tools:layout_editor_absoluteY="377dp" />
+
+
+        <Button
+            android:id="@+id/exitButton"
+            style="@style/Widget.AppCompat.Button.Colored"
+            android:layout_width="130dp"
+            android:layout_height="50dp"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:background="#5648287A"
+            android:text="@string/exit_button"
+            android:textAlignment="center"
+            android:textSize="15dp"
+            tools:layout_editor_absoluteX="134dp"
+            tools:layout_editor_absoluteY="164dp" />
     </GridLayout>
 
 
