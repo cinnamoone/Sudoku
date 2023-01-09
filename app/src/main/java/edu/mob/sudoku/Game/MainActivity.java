@@ -6,8 +6,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -24,11 +27,14 @@ import edu.mob.sudoku.R;
 class CurrentClickedEditText {
     int i = -1;
     int j = -1;
+    Drawable originalDrawable = null;
 
-    public void setClickedPosition(int i, int j){
+    public void setClickedPositionAndBackground(int i, int j, Drawable drawable){
         this.i = i;
         this.j = j;
+        this.originalDrawable = drawable;
     }
+
 
     public boolean isCurrentClickValid(){
         if(this.i == -1 || this.j == -1){
@@ -354,25 +360,28 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         EditTextOnClickListener(int i, int j) {
             this.i = i;
             this.j = j;
+
         }
 
         @Override
         public void onClick(View view) {
             setPreviousClickedFieldBackground();
-            currentClickedEditText.setClickedPosition(this.i, this.j);
+            Drawable originalDrawable = editTexts[this.i][this.j].getBackground();
+            currentClickedEditText.setClickedPositionAndBackground(this.i, this.j, originalDrawable);
             setClickedFieldBackground();
+
 
 
         }
 
        private void setPreviousClickedFieldBackground(){
-            if(currentClickedEditText.isCurrentClickValid()){
-                editTexts[currentClickedEditText.i][currentClickedEditText.j].setBackgroundResource(android.R.drawable.editbox_background);
+           if(currentClickedEditText.isCurrentClickValid()){
+               editTexts[currentClickedEditText.i][currentClickedEditText.j].setBackground(currentClickedEditText.originalDrawable);
             }
         }
 
         private void setClickedFieldBackground(){
-            editTexts[this.i][this.j].setBackgroundResource(android.R.drawable.editbox_background);
+            editTexts[this.i][this.j].setBackgroundResource(R.drawable.lightborder);
 
      }
     }
