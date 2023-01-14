@@ -6,10 +6,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.text.Editable;
@@ -49,6 +47,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button home;
     Button new_game;
     Button exit;
+    Button clearA;
+    Button clearO;
 
     private List<Button> buttons = new ArrayList<>();
     private final int SIZE = 9;
@@ -71,6 +71,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         exit = findViewById(R.id.exitButton);
         exit.setOnClickListener(this);
+
+        clearA = findViewById(R.id.clearAll);
+        clearA.setOnClickListener(this);
+
+        clearO = findViewById(R.id.clearOne);
+        clearO.setOnClickListener(this);
 
         initBoard(LevelActivity.choice);
         initEditTexts();
@@ -203,7 +209,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         for(int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
                 if(board[i][j] != 0) {
-                    editTexts[i][j].setOnTouchListener(getOnTouchIngorer());
+                    editTexts[i][j].setOnTouchListener(getOnTouchIngorer(true));
+                    editTexts[i][j].setEnabled(false);
                     editTexts[i][j].setTextColor(Color.BLACK);
                     editTexts[i][j].setTypeface(null, Typeface.BOLD);
                 }
@@ -211,10 +218,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private View.OnTouchListener getOnTouchIngorer() {
+    private View.OnTouchListener getOnTouchIngorer(boolean choice) {
         return new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
-                return true;
+                return choice;
             }
         };
     }
@@ -289,24 +296,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private void checkGameOver(){
         if(BoardChecker.isGameOver(board)){
-            AlertDialog alertDialog = new AlertDialog.Builder(this)
-                    .setTitle("Congratulations!!!")
-                    .setMessage("If you want to play again press 'yes', if you want to quit press 'no'.")
-                    .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
+                    builder.setTitle("Congratulations!!!");
+                    builder.setMessage("If you want to play again press 'yes', if you want to quit press 'no'.");
+                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
-
+                            Intent intent = new Intent(null, LevelActivity.class);
+                            startActivity(intent);
                         }
-                    })
-                    .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    });
+                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
                             finish();
                         }
-                    })
-                    .show();
+                    });
+                    AlertDialog dialog = builder.create();
+                    dialog.show();
+
         }
 
+
+    }
+
+    private void clearAll(){
+        for(int i = 0; i < SIZE; i++) {
+            for (int j = 0; j < SIZE; j++) {
+                if(editTexts[i][j].isEnabled() == true){
+                    editTexts[i][j].setText("");
+                }
+            }
+        }
+    }
+
+    private void clearOne(){
+        if(currentClickedEditText.isCurrentClickValid()){
+            editTexts[currentClickedEditText.i][currentClickedEditText.j].setText("");
+        }
     }
 
     @Override
@@ -319,6 +346,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(intent);
         }else if(view.getId() == exit.getId()){
             finish();
+        }else if(view.getId() == clearA.getId()){
+            clearAll();
+        }else if(view.getId() == clearO.getId()){
+            clearOne();
         }
 
     }
@@ -369,8 +400,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Drawable originalDrawable = editTexts[this.i][this.j].getBackground();
             currentClickedEditText.setClickedPositionAndBackground(this.i, this.j, originalDrawable);
             setClickedFieldBackground();
-
-
 
         }
 

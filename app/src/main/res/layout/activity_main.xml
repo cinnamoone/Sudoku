@@ -8,6 +8,22 @@
     tools:context=".Game.MainActivity">
 
 
+    <TextView
+        android:id="@+id/counter"
+        android:layout_width="118dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="28dp"
+        android:background="@drawable/whiteborder"
+        android:text="@string/bledy"
+        android:textAlignment="center"
+        android:textColor="#352063"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout2"
+        app:layout_constraintVertical_bias="0.6" />
+
     <GridLayout
         android:id="@+id/gridLayout8"
         android:layout_width="wrap_content"
@@ -199,6 +215,7 @@
             android:text="@string/newgame_button"
             tools:layout_editor_absoluteX="235dp"
             tools:layout_editor_absoluteY="42dp" />
+
     </GridLayout>
 
     <GridLayout
@@ -1661,7 +1678,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/hint"
+            android:id="@+id/clearAll"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="130dp"
             android:layout_height="50dp"
@@ -1679,7 +1696,7 @@
             tools:layout_editor_absoluteY="306dp" />
 
         <Button
-            android:id="@+id/submit"
+            android:id="@+id/clearOne"
             style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="130dp"
             android:layout_height="50dp"
@@ -1710,6 +1727,24 @@
             tools:layout_editor_absoluteX="134dp"
             tools:layout_editor_absoluteY="164dp" />
     </GridLayout>
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="118dp"
+        android:layout_height="24dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/whiteborder"
+        android:text="@string/czas"
+        android:textAlignment="center"
+        android:textColor="#352063"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/gridLayout3"
+        app:layout_constraintEnd_toStartOf="@+id/counter"
+        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/gridLayout2"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
