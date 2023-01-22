@@ -1,7 +1,22 @@
 package edu.mob.sudoku.Game;
-
+/**
+ * Klasa sprawdzająca poprawność wpisywanych liczb na planszy
+ * @author Kinga Spytkowska, Patrycja Oświęcimska
+ */
 public class BoardChecker {
+
+    /** Prywatne, statyczne pole
+     * Określa wielkość planszy
+     */
     private static final int SIZE = 9;
+
+    /**
+     * Metoda sprawdzająca czy dana liczba powtarza się w danym wierszu
+     * @param board aktualna plansza
+     * @param number liczba do wpisania
+     * @param row numer wiersza
+     * @return zwraca informację o tym czy dana liczba znajduje się w danym wierszu
+     */
 
     public static boolean isNumberInRow(int[][] board, int number, int row) {
         int count = 0;
@@ -16,6 +31,14 @@ public class BoardChecker {
         return false;
     }
 
+    /**
+     * Metoda sprawdzająca czy dana liczba powtarza się w danej kolumnie
+     * @param board aktualna plansza
+     * @param number liczba do wpisania
+     * @param column numer kolumny
+     * @return zwraca informację o tym czy dana liczba powtarza się w danej kolumnie
+     */
+
     public static boolean isNumberInColumn(int[][] board, int number, int column) {
         int count = 0;
         for (int i = 0; i < SIZE; i++) {
@@ -28,6 +51,15 @@ public class BoardChecker {
         }
         return false;
     }
+
+    /**
+     * Metoda sprawdzająca czy dana liczba powtarza się w danym kwadracie
+     * @param board aktualna plansza
+     * @param number liczba do wpisania
+     * @param column numer kolumny
+     * @param row numer wiersza
+     * @return zwraca informację o tym czy dana liczba powtarza się w danym kwadracie
+     */
 
     public static boolean isNumberInSquare(int[][] board, int number, int column, int row) {
         //chcemy się dostać do początku kwadratu 3x3, w którym znajduje się wpisywana przez nas liczba
@@ -50,16 +82,27 @@ public class BoardChecker {
         return false;
     }
 
-    //funkcja sprawdzająca czy liczba może być w danym miejscu
-    public static boolean isCorrectPlace(int[][] board, int row, int colum){
-        return !isNumberInColumn(board,board[row][colum],colum) &&
-                !isNumberInRow(board,board[row][colum],row) &&
-                !isNumberInSquare(board,board[row][colum],colum,row);
+    /**
+     * Metoda sprawdzająca czy dana liczba nie powtarza się ani w kolumnie, ani w wierszu, ani w kwadracie
+     * @param board aktualna plansza
+     * @param column numer kolumny
+     * @param row numer wiersza
+     * @return zwraca informację o tym czy dane miejsce jest poprawne dla danej liczby
+     */
+
+    public static boolean isCorrectPlace(int[][] board, int row, int column){
+        return !isNumberInColumn(board,board[row][column],column) &&
+                !isNumberInRow(board,board[row][column],row) &&
+                !isNumberInSquare(board,board[row][column],column,row);
 
     }
 
 
-    //funkcja sprawdzająca czy gracz wygrał
+    /**
+     * Metoda sprawdzająca czy to już jest koniec gry, czy gracz wygrał
+     * @param board aktualna plansza
+     * @return zwraca informację o tym czy to już koniec gry
+     */
     public static boolean isGameOver(int[][] board){
         for(int i = 0; i < SIZE; i++){
             for(int j = 0; j< SIZE; j++){

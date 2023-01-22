@@ -2,10 +2,8 @@ package edu.mob.sudoku.Game;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,17 +13,44 @@ import java.util.Random;
 
 import edu.mob.sudoku.R;
 
+/**
+ * Klasa reprezentująca okno wyboru poziomu trudności gry.
+ * Umożliwia wybór poziomu trudności oraz powrót do głównego okna aplikacji.
+ * @author Kinga Spytkowska, Patrycja Oświęcimska
+ */
+
 public class LevelActivity extends AppCompatActivity implements View.OnClickListener {
 
+    /**
+     * Przycisk do wyboru poziomu łatwego
+     */
     Button easyButton;
+
+    /**
+     * Przycisk do wyboru poziomu średniego
+     */
     Button mediumButton;
+
+    /**
+     * Przycisk do wyboru poziomu trudnego
+     */
     Button hardButton;
+    /**
+     * Przycisk do powrotu do głównego okna aplikacji
+     */
     Button back;
+
+    /**
+     * Zmienne do przekazania informacji jaki poziom gry został wybrany.
+     */
 
     static String choice;
     static int choose;
 
 
+    /** Prywatne, statyczne pole
+     * deklarujące listę z wartościami dla poziomu easy
+     */
     private static List<String> easy = List.of( "003010000052067000004020063000000610291603708060700230106008050038500000520136004",
             "070415000102396040600087509008152070260900100541008300420073060906001704010049080",
             "039040000024009700508000020685400100413090057097035406006050000002900001040260070",
@@ -37,7 +62,9 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
             "004036075968000413000104060100069084409010050780050120040805000391007008025001600",
             "070060502005073960009015708700926304901047020040008079000090480480501097200080050");
 
-    // private static List<String> easy = List.of("280304150700005000094018000000081703040750006873006010000060405600540800400800691");
+    /** Prywatne, statyczne pole
+     * deklarujące listę z wartościami dla poziomu hard
+     */
     private static List<String> hard =List.of( "040100083005000009000290100000306200900807300300500076050083600030651007001000538",
             "070020408018000006000001000205000800003700004000940000850000001000630009069000500",
             "800000000700900500000305861060031000001040300080020710005007000498000072000004109",
@@ -48,6 +75,10 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
             "040020750000000413100090600000401005007000000300000100500906004900300000070040030",
             "800900050010500937050006801480720500365098100790000300128000095509802010000050028",
             "090000705306008000007000100204000000000802000980005600030400026100000570800600030");
+
+    /** Prywatne, statyczne pole
+     * deklarujące listę z wartościami dla poziomu medium
+     */
 
     private static List<String> medium = List.of("905318000800020000060000080070980140100650007003100050704801520608037000200000060",
             "705002008034005200601000000506000000000013400000400090160300829302900007000820000",
@@ -60,12 +91,39 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
             "840020000612090080935078400270500160006007290000061800401906078763800009500000020",
             "060305008004070000000604302009000284040000000301008000480590000070201540000040060");
 
+    /**
+     * Statyczna zmienna 'random' z klasy Random służy do generowania liczb pseudolosowych.
+     */
     static Random random = new Random();
+
+    /** Prywatne, statyczne pole
+     * losujące liczbę z przedziału od 1-10
+     */
     private static int index = random.nextInt(10);
+
+    /** Prywatne, statyczne pole
+     * wybierające z listy o nazwie 'easy' jeden String
+     * w celu zainicjalizowania planszy jeśli użytkownik wybierze poziom easy
+     */
     private static String randomValueEasy = easy.get(0);
+
+    /** Prywatne, statyczne pole
+     * wybierające z listy o nazwie 'medium' jeden String
+     * w celu zainicjalizowania planszy jeśli użytkownik wybierze poziom medium
+     */
     private static String randomValueMedium = medium.get(index);
+
+    /** Prywatne, statyczne pole
+     * wybierające z listy o nazwie 'hard' jeden String
+     * w celu zainicjalizowania planszy jeśli użytkownik wybierze poziom hard
+     */
     private static String randomValueHard = hard.get(index);
 
+
+    /**
+     * Metoda wywoływana podczas tworzenia okna, inicjalizuje elementy interfejsu oraz ustawia listener dla przycisków.
+     * @param savedInstanceState zachowany stan aplikacji
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +142,11 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
 
     }
 
+    /**
+     * Metoda obsługująca kliknięcie przycisków w oknie wyboru poziomu trudności,
+     * przekierowuje do odpowiedniego okna i ustawia poziom trudności.
+     * @param view widok, na którym został wykonany kliknięcie
+     */
 
     @Override
     public void onClick(View view) {
