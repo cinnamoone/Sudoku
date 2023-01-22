@@ -26,10 +26,30 @@ import java.util.List;
 
 import edu.mob.sudoku.R;
 
+/**
+ *Klasa informująca o obecnych współrzędnych
+ * @author Kinga Spytkowska, Patrycja Oświęcimska
+ */
+
 class CurrentClickedEditText {
+
+    /**
+     * Ustawienie wiersza i kolumny na -1
+     */
     int i = -1;
     int j = -1;
+
+    /**
+     * Pole odpowiedzialne za tło
+     */
     Drawable originalDrawable = null;
+
+    /**
+     * Metoda ustawiająca aktualne położenie oraz tło
+     * @param i wiersz
+     * @param j kolumna
+     * @param drawable tło
+     */
 
     public void setClickedPositionAndBackground(int i, int j, Drawable drawable){
         this.i = i;
@@ -37,6 +57,11 @@ class CurrentClickedEditText {
         this.originalDrawable = drawable;
     }
 
+
+    /**
+     * Metoda sprawdzająca czy bieżące kliknięcie jest prawidłowe
+     * @return czy kliknięcie jest prawidłowe
+     */
 
     public boolean isCurrentClickValid(){
         if(this.i == -1 || this.j == -1){
@@ -46,29 +71,100 @@ class CurrentClickedEditText {
     }
 }
 
+
+/**
+ * Klasa odpowiedzialna za działanie głównego ekranu gry.
+ * Zawiera logikę dotyczącą interfejsu użytkownika i funkcjonalności gry.
+ * @author Kinga Spytkowska, Patrycja Oświęcimska
+ */
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    /**
+     * Przycisk pozwalający do przejścia do menu
+     */
     Button home;
+
+    /**
+     * Przycisk pozwalający na rozpoczęcie nowej gry
+     */
     Button new_game;
+
+    /**
+     * Przycisk do zamknięcia aplikacji
+     */
     Button exit;
+
+    /**
+     * Przycisk do wyczyszczenia całej planszy
+     */
     Button clearA;
+
+    /**
+     * Przycisk do wyczyszczenia jednego elementu
+     */
     Button clearO;
 
+    /**
+     * TextView odpowiadający za wyświetlanie licznika błędów
+     */
+
     TextView count;
+
+    /**
+     * Chronometr odpowiedzialny za wyświetlanie czasu
+     */
     Chronometer chronometer;
+
+    /**
+     * Lista przechowująca zdobyte punkty podczas gry
+     */
 
     static List<Float> scores = new ArrayList<>();
 
+    /**
+     * Zmienna przechowująca liczbę punktów
+     */
+
     public float punctation = 0;
+
+    /**
+     * Zmienna przechowująca liczbę pomyłek
+     */
     private int mistakes = 0;
 
+    /**
+     * Lista przetrzymująca przyciski numeryczne
+     */
+
     private List<Button> buttons = new ArrayList<>();
+
+    /** Prywatne pole
+     * określające wielkość planszy.
+     */
     private final int SIZE = 9;
 
+    /** Prywatne pole określające
+     * dwuwymiarową tablicę obiektów typu editText.
+     */
+
     private EditText editTexts[][] = new EditText[SIZE][SIZE];
+
+    /** Prywatne pole określające
+     * dwuwymiarową tablicę obiektów typu int.
+     */
     private int[][] board = new int[SIZE][SIZE];
+
+    /**
+     * Obiekt klasy CurrentClickedEditText
+     */
     private CurrentClickedEditText currentClickedEditText = new CurrentClickedEditText();
 
+
+    /**
+     * Metoda wywoływana podczas tworzenia okna, inicjalizuje elementy interfejsu oraz ustawia listener dla przycisków,
+     * ponadto wywołuje odpowiednie metody
+     * @param savedInstanceState zachowany stan aplikacji
+     */
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -111,6 +207,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+    /**
+     * Metoda inicjalizująca planszę odpowiednimi wartościami.
+     * @param numbers wylosowana zmienna w ramach danego levelu
+     */
+
     private void initBoard(String numbers){
         for(int i = 0; i < SIZE; i++){
             for(int j = 0; j < SIZE; j++){
@@ -120,6 +221,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
 
     }
+
+    /**
+     * Metoda inicjalizująca każdy z przycisków na planszy
+     */
 
     private void initEditTexts() {
         editTexts[0][0] = findViewById(R.id.oneb1);
@@ -213,6 +318,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         editTexts[8][8] = findViewById(R.id.nineb9);
     }
 
+    /**
+     * Metoda zmieniająca zera na puste pola.
+     */
+
     private void setEditTextValues(){
         for(int i = 0; i < SIZE; i++) {
             for (int j = 0; j < SIZE; j++) {
@@ -225,6 +334,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+
+    /**
+     * Metoda blokująca pola, z wartościami zainicjalizowanymi, przed zmianą.
+     */
 
     private void setUnchangeableEditTexts(){
         for(int i = 0; i < SIZE; i++) {
@@ -239,6 +352,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Metoda ustawiająca czy dane miejsce ma ignorować kliknięcie czy nie
+     * @param choice czy ustawić ignorowanie
+     * @return choice
+     */
+
     private View.OnTouchListener getOnTouchIngorer(boolean choice) {
         return new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
@@ -246,6 +365,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         };
     }
+
+    /**
+     * Metoda ustawiająca nasłuchiwacze
+     * na pola na planszy.
+     */
 
 
     private void setEditTextsListeners(){
@@ -257,14 +381,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Metoda zapewniająca instancję klasy implementującą zachowaine na zmianę editText[i][j].
+     * @param i numer wiersza
+     * @param j numer kolumny
+     * @return zwraca nową instancję klasy EditTextTextWatcher
+     */
+
 
     private TextWatcher getEditTextOnChangeBehaviour(int i, int j){
         return new EditTextTextWatcher(i, j);
     }
 
+    /**
+     * Metoda zapewniająca instancję klasy implementującą zachowaine na kliknięcie na editText[i][j].
+     * @param i numer wiersza
+     * @param j numer kolumny
+     * @return zwraca nową instancję klasy EditTextOnCLickListener
+     */
+
     private View.OnClickListener getEditTextOnClickBehaviour(int i, int j) {
         return new EditTextOnClickListener(i, j);
     }
+
+    /**
+     * Metoda dodająca każdy przycisk numeryczny do tablicy przycisków.
+     */
 
     private void initNumericalButtons() {
         buttons.add(findViewById(R.id.one));
@@ -277,6 +419,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         buttons.add(findViewById(R.id.eight));
         buttons.add(findViewById(R.id.nine));
     }
+
+
+    /**
+     * Metoda obsługująca przyciski numeryczne
+     */
 
     private void applyBehaviourToNumericalButtons() {
         for(int i = 0; i < buttons.size(); i++) {
@@ -294,6 +441,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
+    /**
+     * Metoda przypisująca liczby wpisane przez użytkownika
+     * do głównej tablicy.
+     */
     private void assignEditTextValueToBoard(int i, int j) {
         try {
             String editTextAsString = editTexts[i][j].getText().toString();
@@ -304,11 +455,24 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * Metoda ustawiająca licznik błędów
+     * @param mistacke licza błędów
+     */
+
     public void mistackes(int mistacke){
         count.setText(String.valueOf(mistacke));
         count.setEnabled(false);
 
     }
+
+    /**
+     * Metoda sprawdzająca czy wpisana liczba na planszy jest poprawna.
+     * Jeśli jest poprawna to kolor tła będzie zielony.
+     * Jeśli jest niepoprawna to kolor tła będzie czerwony,
+     * licznik błędów się zwiększy
+     * a w przypadku zbyt dużej ilości błędów wyświetli się komunikat.
+     */
 
     private void checkBoard(int i, int j){
         boolean isCorrectNumber = BoardChecker.isCorrectPlace(board, i, j);
@@ -329,6 +493,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+
+    /**
+     * Metoda informująca o ilości popełnionych błędów.
+     * Pyta czy gracz chce zagrać ponownie.
+     * Jeśli tak to resetuje planszę,
+     * jeśli nie to zamyka program.
+     */
 
 
     private void showMistakesAlert(int y){
@@ -353,6 +524,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         dialog.show();
     }
+
+    /**
+     * Metoda informująca o fakcie, że gra się skończyła.
+     * Wyświetla wynik oraz czas gry.
+     * Pyta czy gracz chce zagrać ponownie.
+     * Jeśli tak to resetuje planszę,
+     * jeśli nie to zamyka program.
+     */
 
     public void showAlertOnTheGameEnd() {
 
@@ -379,6 +558,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * Metoda sprawdzająca czy wpisana liczba na planszy jest poprawna.
+     * Jeśli jest poprawna to kolor napisu będzie fioletowy
+     * Jeśli jest niepoprawna to kolor napisu będzie czerwony,
+     * licznik błędów się zwiększy
+     * a w przypadku zbyt dużej ilości błędów wyświetli się komunikat.
+     */
+
     private void checkGameOver(){
         if(BoardChecker.isGameOver(board)){
             float score = punctation(mistakes);
@@ -390,10 +577,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     * Metoda obliczająca punkty
+     * @param mistakes liczba pomyłek
+     * @return liczba punktów
+     */
+
     public float punctation(int mistakes){
         long elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase();
         return punctation =(10000 - (50 * mistakes)) /(elapsedMillis/1000) ;
     }
+
+    /**
+     * Metoda czyszcząca wszystkie wpisane liczby na planszy
+     */
 
     private void clearAll(){
         for(int i = 0; i < SIZE; i++) {
@@ -407,6 +604,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Metoda czyszcząca wybrany element na planszy
+     */
+
     private void clearOne(){
         if(currentClickedEditText.isCurrentClickValid()){
             editTexts[currentClickedEditText.i][currentClickedEditText.j].setText("");
@@ -415,12 +616,22 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     * Metoda dodająca wynik do listy ze statystykami
+     * @param punctation uzyskany wynik
+     */
+
 
     public void addToStatistics(float punctation) {
         MainActivity.scores.add(punctation);
     }
 
 
+
+    /**
+     * Metoda obsługująca kliknięcie przycisków, przenosi użytkownika do odpowiedniego okna w aplikacji.
+     * @param view widok, na którym został wykonany kliknięcie
+     */
     @Override
     public void onClick(View view) {
         if(view.getId() == home.getId()) {
@@ -439,15 +650,32 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    /**
+     *Klasa implementująca TextWatcher czyli nasłuchiwacz na zmiany tekstu
+     */
+
     class EditTextTextWatcher implements TextWatcher {
 
+        /**
+         * Zmienne określające wiersz i kolumnę na planszy
+         */
         private final int i;
         private final int j;
+
+        /**
+         * Konstruktor klasy EditTextTextWatcher
+         * @param i wiersz
+         * @param j kolumna
+         */
 
         EditTextTextWatcher(int i, int j) {
             this.i = i;
             this.j = j;
         }
+
+        /**
+         * Zachowanie przed zmianą tekstu
+         */
 
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -455,11 +683,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+        /**
+         * Zachowanie w trakcie zmiany tekstu
+         */
+
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
 
         }
+
+        /**
+         * Zachowanie po zmianie tekstu
+         */
 
         @Override
         public void afterTextChanged(Editable editable) {
@@ -470,16 +706,36 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
+    /**
+     *Klasa implementująca OnClickListener czyli nasłuchiwacz na kliknięcie
+     */
     class EditTextOnClickListener implements View.OnClickListener {
+
+
+        /**
+         * Zmienne określające wiersz i kolumnę na planszy
+         */
 
         private final int i;
         private final int j;
+
+        /**
+         * Konstruktor klasy EditTextOnClickListener
+         * @param i wiersz
+         * @param j kolumna
+         */
 
         EditTextOnClickListener(int i, int j) {
             this.i = i;
             this.j = j;
 
         }
+
+        /**
+         * Metoda obsługująca kliknięcie przycisków
+         * Jeśli pole zostanie wybrane to zmieni się tło
+         * @param view widok, na którym został wykonany kliknięcie
+         */
 
         @Override
         public void onClick(View view) {
@@ -490,11 +746,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
+        /**
+         * Metoda ustawiająca tło pola przed kliknięciem
+         */
+
         private void setPreviousClickedFieldBackground(){
             if(currentClickedEditText.isCurrentClickValid()){
                 editTexts[currentClickedEditText.i][currentClickedEditText.j].setBackground(currentClickedEditText.originalDrawable);
             }
         }
+
+        /**
+         * Metoda ustawiająca tło pola w trakcie kliknięcia
+         */
 
         private void setClickedFieldBackground(){
             editTexts[this.i][this.j].setBackgroundResource(R.drawable.lightborder);
