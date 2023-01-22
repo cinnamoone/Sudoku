@@ -1728,23 +1728,41 @@
             tools:layout_editor_absoluteY="164dp" />
     </GridLayout>
 
-    <TextView
-        android:id="@+id/time"
-        android:layout_width="118dp"
-        android:layout_height="24dp"
-        android:layout_marginBottom="8dp"
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="93dp"
+        android:layout_height="26dp"
         android:background="@drawable/whiteborder"
-        android:text="@string/czas"
         android:textAlignment="center"
         android:textColor="#352063"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout3"
         app:layout_constraintEnd_toStartOf="@+id/counter"
-        app:layout_constraintHorizontal_bias="0.163"
+        app:layout_constraintHorizontal_bias="0.139"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout2"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.666" />
+
+
+    <!--    <TextView-->
+<!--        -->
+<!--        android:id="@+id/time"-->
+<!--        android:layout_width="118dp"-->
+<!--        android:layout_height="24dp"-->
+<!--        android:layout_marginBottom="8dp"-->
+<!--        android:background="@drawable/whiteborder"-->
+<!--        android:text="@string/czas"-->
+<!--        android:textAlignment="center"-->
+<!--        android:textColor="#352063"-->
+<!--        android:textSize="20sp"-->
+<!--        android:textStyle="bold"-->
+<!--        app:layout_constraintBottom_toTopOf="@+id/gridLayout3"-->
+<!--        app:layout_constraintEnd_toStartOf="@+id/counter"-->
+<!--        app:layout_constraintHorizontal_bias="0.163"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toBottomOf="@+id/gridLayout2"-->
+<!--        app:layout_constraintVertical_bias="1.0" />-->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,8 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     Button statistic;
     Button exit;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -44,13 +46,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, StatisticsActivity.class);
             startActivity(intent);
         }else if(view.getId() == exit.getId()){
-            finish();
+            finishAffinity();
         }
     }
 
 
 
-    
+
 
 
 }

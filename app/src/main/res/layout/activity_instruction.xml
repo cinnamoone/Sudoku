@@ -49,19 +49,17 @@
 
     <Button
         android:id="@+id/back_button"
-        style="@style/purpp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginBottom="48dp"
-        android:autoText="false"
-        android:background="@drawable/whiteborder"
-        android:backgroundTint="#90826FAC"
+        android:layout_width="119dp"
+        android:layout_height="57dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#C2BCCF"
         android:text="@string/back"
-        android:textColor="#352063"
-        android:textCursorDrawable="@drawable/board"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        app:barrierMargin="@dimen/cardview_default_radius"
+        android:textColor="@color/black"
+        app:cornerRadius="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.859"
+        app:layout_constraintStart_toStartOf="parent"
+        app:strokeColor="#FFFFFF" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

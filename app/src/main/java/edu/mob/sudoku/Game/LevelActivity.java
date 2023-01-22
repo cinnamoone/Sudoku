@@ -2,8 +2,11 @@ package edu.mob.sudoku.Game;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,11 +20,13 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
     Button easyButton;
     Button mediumButton;
     Button hardButton;
+    Button back;
 
     static String choice;
+    static int choose;
 
-    private static List<String> easy = List.of("280304150700005000094018000000081703040750006873006010000060405600540800400800691",
-            "003010000052067000004020063000000610291603708060700230106008050038500000520136004",
+
+    private static List<String> easy = List.of( "003010000052067000004020063000000610291603708060700230106008050038500000520136004",
             "070415000102396040600087509008152070260900100541008300420073060906001704010049080",
             "039040000024009700508000020685400100413090057097035406006050000002900001040260070",
             "704205603628009507009176482060457008502900060483020759845713926230594071190802345",
@@ -29,8 +34,10 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
             "469570138508000467173460590700005683300006715000701249900054800680200050205083974",
             "200319807075268090089075236600003000407182309908640510000000608020006140806020003",
             "060381700090020061108049005910000503007493000023010987000004006000060300080007059",
-            "004036075968000413000104060100069084409010050780050120040805000391007008025001600");
+            "004036075968000413000104060100069084409010050780050120040805000391007008025001600",
+            "070060502005073960009015708700926304901047020040008079000090480480501097200080050");
 
+    // private static List<String> easy = List.of("280304150700005000094018000000081703040750006873006010000060405600540800400800691");
     private static List<String> hard =List.of( "040100083005000009000290100000306200900807300300500076050083600030651007001000538",
             "070020408018000006000001000205000800003700004000940000850000001000630009069000500",
             "800000000700900500000305861060031000001040300080020710005007000498000072000004109",
@@ -55,7 +62,7 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
 
     static Random random = new Random();
     private static int index = random.nextInt(10);
-    private static String randomValueEasy = easy.get(index);
+    private static String randomValueEasy = easy.get(0);
     private static String randomValueMedium = medium.get(index);
     private static String randomValueHard = hard.get(index);
 
@@ -67,26 +74,42 @@ public class LevelActivity extends AppCompatActivity implements View.OnClickList
         easyButton = findViewById(R.id.easy_button);
         mediumButton = findViewById(R.id.medium_button);
         hardButton = findViewById(R.id.hard_button);
+        back = findViewById(R.id.back_button);
 
         easyButton.setOnClickListener(this);
         mediumButton.setOnClickListener(this);
         hardButton.setOnClickListener(this);
+        back.setOnClickListener(this);
+
+
     }
+
 
     @Override
     public void onClick(View view) {
         if(view.getId() == easyButton.getId()){
             Intent intent = new Intent(this, MainActivity.class );
             choice = randomValueEasy;
+            choose = 1;
             startActivity(intent);
+            Toast.makeText(getApplicationContext(), "Pamiętaj, gra zakończy się jeśli popełnisz 10 błędów.", Toast.LENGTH_SHORT).show();
+
         }else if(view.getId() == mediumButton.getId()) {
             Intent intent = new Intent(this, MainActivity.class);
             choice = randomValueMedium;
+            choose = 2;
             startActivity(intent);
+            Toast.makeText(getApplicationContext(), "Pamiętaj, gra zakończy się jeśli popełnisz 6 błędów.", Toast.LENGTH_SHORT).show();
         }else if(view.getId() == hardButton.getId()){
             Intent intent = new Intent(this, MainActivity.class);
             choice = randomValueHard;
+            choose = 3;
             startActivity(intent);
+            Toast.makeText(getApplicationContext(), "Pamiętaj, gra zakończy się jeśli popełnisz 3 błędy.", Toast.LENGTH_SHORT).show();
+        }else if(view.getId() == back.getId()){
+            Intent intent = new Intent(this, HomeActivity.class);
+            startActivity(intent);
+
         }
 
     }

@@ -13,7 +13,7 @@
     <string name="home_button">HOME</string>
     <string name="clear_all_button">CLEAR ALL</string>
     <string name="clear_one_button">CLEAR ONE</string>
-    <string name="bledy">COUNTER</string>
+    <string name="bledy">MISTAKES</string>
     <string name="czas">TIME</string>
 
     <string name="instruction_textView">Na czym polega gra?</string>
@@ -22,4 +22,5 @@
     <string name="back">BACK</string>
 
     <string name="staty">TABELA WYNIKÓW</string>
+
 </resources>

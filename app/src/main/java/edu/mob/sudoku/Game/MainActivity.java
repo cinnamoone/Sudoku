@@ -1,24 +1,28 @@
 package edu.mob.sudoku.Game;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
 
 import edu.mob.sudoku.R;
 
@@ -50,6 +54,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button clearA;
     Button clearO;
 
+    TextView count;
+    Chronometer chronometer;
+
+    static List<Float> scores = new ArrayList<>();
+
+    public float punctation = 0;
+    private int mistakes = 0;
+
     private List<Button> buttons = new ArrayList<>();
     private final int SIZE = 9;
 
@@ -78,17 +90,26 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         clearO = findViewById(R.id.clearOne);
         clearO.setOnClickListener(this);
 
+        count = findViewById(R.id.counter);
+        chronometer = findViewById(R.id.chronometer);
+
+
+
         initBoard(LevelActivity.choice);
         initEditTexts();
         setEditTextValues();
         setUnchangeableEditTexts();
         setEditTextsListeners();
+        chronometer.start();
+
 
         initNumericalButtons();
         applyBehaviourToNumericalButtons();
 
 
     }
+
+
 
     private void initBoard(String numbers){
         for(int i = 0; i < SIZE; i++){
@@ -283,6 +304,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    public void mistackes(int mistacke){
+        count.setText(String.valueOf(mistacke));
+        count.setEnabled(false);
+
+    }
+
     private void checkBoard(int i, int j){
         boolean isCorrectNumber = BoardChecker.isCorrectPlace(board, i, j);
         if(isCorrectNumber){
@@ -291,33 +318,81 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         }else{
             editTexts[i][j].setTextColor(Color.RED);
             editTexts[i][j].setTypeface(null, Typeface.BOLD);
+            mistakes++;
+            mistackes(mistakes);
+            if(LevelActivity.choose == 1 && mistakes >= 10){
+                showMistakesAlert(10);
+            } else if (LevelActivity.choose == 2 && mistakes >= 6) {
+                showMistakesAlert(6);
+            }else if (LevelActivity.choose == 3 && mistakes >= 3) {
+                showMistakesAlert(3);
+            }
         }
+    }
+
+
+    private void showMistakesAlert(int y){
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+        builder.setTitle("Koniec gry");
+        builder.setMessage("Popełniłeś " + y +
+                " błędów. Czy chcesz zagrać ponownie?");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Tak", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                clearAll();
+            }
+        });
+        builder.setNegativeButton("Nie", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finishAffinity();
+            }
+        });
+        AlertDialog dialog = builder.show();
+
+        dialog.show();
+    }
+
+    public void showAlertOnTheGameEnd() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this, R.style.AlertDialogCustom);
+        builder.setTitle("Gratulacje! Wygrałeś!");
+        builder.setMessage("Twój czas to: " + chronometer.getText() + ".\nPopełniłeś: " +
+                mistakes + " błędów." +
+                "\nZdobyłeś: " + punctation(mistakes) + " punktów. \nCzy chcesz zagrać ponownie? ");
+        builder.setCancelable(false);
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                finish();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+                startActivity(intent);
+            }
+        });
+        builder.create().show();
+
     }
 
     private void checkGameOver(){
         if(BoardChecker.isGameOver(board)){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(this);
-                    builder.setTitle("Congratulations!!!");
-                    builder.setMessage("If you want to play again press 'yes', if you want to quit press 'no'.");
-                    builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            Intent intent = new Intent(null, LevelActivity.class);
-                            startActivity(intent);
-                        }
-                    });
-                    builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialogInterface, int i) {
-                            finish();
-                        }
-                    });
-                    AlertDialog dialog = builder.create();
-                    dialog.show();
+            float score = punctation(mistakes);
+            addToStatistics(score);
+            chronometer.stop();
+            showAlertOnTheGameEnd();
 
         }
 
+    }
 
+    public float punctation(int mistakes){
+        long elapsedMillis = SystemClock.elapsedRealtime() - chronometer.getBase();
+        return punctation =(10000 - (50 * mistakes)) /(elapsedMillis/1000) ;
     }
 
     private void clearAll(){
@@ -325,6 +400,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             for (int j = 0; j < SIZE; j++) {
                 if(editTexts[i][j].isEnabled() == true){
                     editTexts[i][j].setText("");
+                    mistakes--;
+                    mistackes(mistakes);
                 }
             }
         }
@@ -333,8 +410,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private void clearOne(){
         if(currentClickedEditText.isCurrentClickValid()){
             editTexts[currentClickedEditText.i][currentClickedEditText.j].setText("");
+            mistakes--;
+            mistackes(mistakes);
         }
     }
+
+
+    public void addToStatistics(float punctation) {
+        MainActivity.scores.add(punctation);
+    }
+
 
     @Override
     public void onClick(View view) {
@@ -345,7 +430,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent intent = new Intent(this, LevelActivity.class);
             startActivity(intent);
         }else if(view.getId() == exit.getId()){
-            finish();
+            finishAffinity();
         }else if(view.getId() == clearA.getId()){
             clearAll();
         }else if(view.getId() == clearO.getId()){
@@ -367,10 +452,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
+
         }
 
         @Override
         public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
 
         }
 
@@ -403,18 +490,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         }
 
-       private void setPreviousClickedFieldBackground(){
-           if(currentClickedEditText.isCurrentClickValid()){
-               editTexts[currentClickedEditText.i][currentClickedEditText.j].setBackground(currentClickedEditText.originalDrawable);
+        private void setPreviousClickedFieldBackground(){
+            if(currentClickedEditText.isCurrentClickValid()){
+                editTexts[currentClickedEditText.i][currentClickedEditText.j].setBackground(currentClickedEditText.originalDrawable);
             }
         }
 
         private void setClickedFieldBackground(){
             editTexts[this.i][this.j].setBackgroundResource(R.drawable.lightborder);
 
-     }
+        }
     }
 
-        }
+}
 
 
