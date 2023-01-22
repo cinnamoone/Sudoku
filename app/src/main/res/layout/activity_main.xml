@@ -10,19 +10,19 @@
 
     <TextView
         android:id="@+id/counter"
-        android:layout_width="118dp"
-        android:layout_height="24dp"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
         android:layout_marginEnd="28dp"
         android:background="@drawable/whiteborder"
         android:text="@string/bledy"
         android:textAlignment="center"
         android:textColor="#352063"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gridLayout2"
-        app:layout_constraintVertical_bias="0.6" />
+        app:layout_constraintVertical_bias="0.666" />
 
     <GridLayout
         android:id="@+id/gridLayout8"
@@ -1730,12 +1730,12 @@
 
     <Chronometer
         android:id="@+id/chronometer"
-        android:layout_width="93dp"
-        android:layout_height="26dp"
+        android:layout_width="100dp"
+        android:layout_height="25dp"
         android:background="@drawable/whiteborder"
         android:textAlignment="center"
         android:textColor="#352063"
-        android:textSize="20sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/gridLayout3"
         app:layout_constraintEnd_toStartOf="@+id/counter"
