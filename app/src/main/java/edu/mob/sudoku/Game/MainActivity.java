@@ -533,13 +533,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 mistakes + " błędów." +
                 "\nZdobyłeś: " + punctation(mistakes) + " punktów. \nCzy chcesz zagrać ponownie? ");
         builder.setCancelable(false);
-        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Tak", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 finish();
             }
         });
-        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton("Nie", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 Intent intent = new Intent(MainActivity.this, HomeActivity.class);
