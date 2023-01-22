@@ -9,8 +9,8 @@
 
     <Button
         android:id="@+id/choose_level"
-        android:layout_width="248dp"
-        android:layout_height="83dp"
+        android:layout_width="244dp"
+        android:layout_height="111dp"
         android:background="@drawable/purpleborder"
         android:backgroundTint="#A46EAE"
         android:backgroundTintMode="src_atop"
