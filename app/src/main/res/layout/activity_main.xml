@@ -986,6 +986,10 @@
                 android:layout_column="0"
                 android:background="@drawable/purpleborder"
                 android:text=""
+                android:focusable="true"
+                android:focusableInTouchMode="false"
+                android:inputType="number"
+                android:maxLength="1"
                 android:textAlignment="center"
                 android:textColor="@color/black"
                 android:textSize="15sp" />
